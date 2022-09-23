@@ -1,18 +1,20 @@
 #include "main.h"
+
 /**
- * print_alphabet_x10 - function to print abc 10 times
- * Return: 0
+ * print_alphabet_x10 - entry point
+ * Description: 'print alphs xten'
+ * Returs: ''
  */
+
 void print_alphabet_x10(void)
 {
-	char c, i;
+	char i;
+	int j;
 
-	for (i = 0; i <= 9; i++)
+	for (j = 0; j < 10; j++)
 	{
-		for (c = 'a'; c <= 'z'; c++)
-		{
-			_putchar(c);
-		}
+		for (i = 'a'; i <= 'z'; i++)
+			_putchar(i);
 		_putchar('\n');
 	}
 }
