@@ -6,7 +6,6 @@
 * main - Print result of adding given arguments
 * @argc: Number of arguments
 * @argv: Arguments recieved
-* 
 * Return: 0 on success, 1 if theres a nondigit arg
 */
 int main(int argc, char *argv[])
@@ -14,7 +13,7 @@ int main(int argc, char *argv[])
 	int sum;
 	int count;
 	int i;
-	
+
 	count = 1;
 	sum = 0;
 	if (argc == 1)
