@@ -23,4 +23,5 @@ ssize_t read_and_print_file(const char *filename, size_t num_chars)
 
 	free(buffer);
 	close(file_descriptor);
+	return(num_written);
 }

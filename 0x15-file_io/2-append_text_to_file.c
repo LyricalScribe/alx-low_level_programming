@@ -1,5 +1,5 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include "main.h"
+#include <string.h>
 
 /**
  * append_text_to_file - ppends text at the end of a file
@@ -9,29 +9,34 @@
  * Return: 1 on Success or -1 on Failure
  */
 
-int append_string_to_file(const char *filename, const char *string)
+int append_text_to_file(const char *filename, char *text_content)
 {
-    int fd, bytes_written, string_length = 0;
+    int fd, bytes_written;
+    size_t len;
 
-    if (filename == NULL || string == NULL) {
-        return -1;
-    }
+    if (filename == NULL)
+        return (-1);
 
-    while (string[string_length] != '\0') {
-        string_length++;
-    }
+    fd = open(filename, O_WRONLY | O_APPEND);
+    if (fd == -1)
+        return (-1);
 
-    fd = open(filename, "a");
-    if (fd == NULL) {
-        return -1;
-    }
-
-    bytes_written = fwrite(string, sizeof(char), string_length, fd);
-    if (bytes_written < string_length) {
+    if (text_content == NULL)
+    {
         close(fd);
-        return -1;
+        return (1);
     }
 
+    len = strlen(text_content);
+    bytes_written = write(fd, text_content, len);
     close(fd);
-    return 0;
+
+    if (bytes_written != (int)len)
+        return (-1);
+
+    return (1);
 }
+
+
+
+
