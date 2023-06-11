@@ -5,7 +5,7 @@
 * main - multiples two integers using atoi function
 * @argc: number of arguments
 * @argv: arguments passed
-* Return: (1): if no arguments are passed and 0 otherwise
+* Return: (1) if no arguments are passed otherwise 0
 */
 int main(int argc, char *argv[])
 {
@@ -19,3 +19,4 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (1);
 	}
+}
