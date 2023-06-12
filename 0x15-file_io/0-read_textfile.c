@@ -1,27 +1,41 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
- * read_and_print_file- Read text file print to STDOUT
- * @filename: text file being read
- * @num_chars: number of characters to be read
- * Return: the actual number of letters it could read and print
+ * this function called read_textfile reads a fikle prints it to the 
+ * POSIX standard output
+ * @filename: file name
+ * @letters: number of letters it could read and print
+ *
+ * Return: Actual number of letters it could read and print
  */
-ssize_t read_and_print_file(const char *filename, size_t num_chars)
+ 
+
+ssize_t read_textfile(const char *filename, size_t letters)
 {
-	char *buffer;
-	ssize_t file_descriptor;
-	ssize_t num_read;
-	ssize_t num_written;
+	ssize_t fd;
+	size_t wr = 0, sz;
 
-	file_descriptor = open(filename, O_RDONLY);
-	if (file_descriptor == -1)
+	char *c = malloc(sizeof(char) * letters);
+
+	if (!filename){
 		return (0);
-	buffer = malloc(sizeof(char) * num_chars);
-	num_read = read(file_descriptor, buffer, num_chars);
-	num_written = write(STDOUT_FILENO, buffer, num_read);
+	}
 
-	free(buffer);
-	close(file_descriptor);
-	return(num_written);
+	fd = open(filename, O_RDONLY);
+
+	if (fd < 0){
+		return (0);
+	}
+
+	sz = read(fd, c, letters);
+
+	c[sz] = '\0';
+
+	wr = write(STDOUT_FILENO, c, sz);
+
+	free(c);
+	close(fd);
+
+
+	return ((wr != sz) ? 0 : wr);
 }
