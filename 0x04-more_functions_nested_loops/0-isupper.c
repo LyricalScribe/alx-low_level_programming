@@ -3,6 +3,8 @@
 
 /**
  * _isupper - check if the code is uppercase
+ * @c: character to be checked
+ *
  * Return: Return 1 if 'c' is uppercase otherwise always 0 (Success)
  */
 
