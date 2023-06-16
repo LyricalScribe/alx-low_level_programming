@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def island_perimeter(grid):
     """
     Calculates area of a grid
