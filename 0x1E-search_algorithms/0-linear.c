@@ -1,4 +1,4 @@
-#include "search_alogs.h"
+#include "search_algos.h"
 
 /**
 * linear_search - a function to perform linear search
