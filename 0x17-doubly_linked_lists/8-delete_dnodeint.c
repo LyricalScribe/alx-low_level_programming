@@ -1,10 +1,10 @@
 #include "lists.h"
 
 /**
- * delete_dnodeint_at_index- deletes at gibem index
- * @head: head of the list
- * @index:node to be deleted
- * Return: 1 on sucess, -1 on failure
+ * delete_dnodeint_at_index - deletes a node at the given index
+ * @head: pointer to the head of the list
+ * @index: index of the node to be deleted
+ * Return: 1 on success, -1 on failure
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
